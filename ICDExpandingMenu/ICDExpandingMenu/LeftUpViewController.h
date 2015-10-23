@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  LeftUpViewController.h
 //  ICDExpandingMenu
 //
-//  Created by wenky on 15/10/15.
+//  Created by wenky on 15/10/23.
 //  Copyright (c) 2015年 wenky. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface LeftUpViewController : UIViewController
 
 @end
-
