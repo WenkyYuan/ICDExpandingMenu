@@ -226,6 +226,9 @@ static const CGFloat kColSpacingForCenterUp = 50;
     if (self.flag < 0) {
         [self.timer invalidate];
         self.timer = nil;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.backgroundColor = UIColorFromRGBA(0xffffff, 0.0);
+        }];
     }
     
     NSInteger tag = 1000 + self.flag;
@@ -298,11 +301,8 @@ static const CGFloat kColSpacingForCenterUp = 50;
         [UIView animateWithDuration:0.5 animations:^{
             self.backgroundColor = UIColorFromRGBA(0xffffff, 1.0);
         }];
-    } else {
-        [UIView animateWithDuration:0.5 animations:^{
-            self.backgroundColor = UIColorFromRGBA(0xffffff, 0.0);
-        }];
     }
+    
     float angle = _expanding ? -M_PI_2 : 0.0f;
     [UIView animateWithDuration:0.5f animations:^{
         self.centerButton.transform = CGAffineTransformMakeRotation(angle);
