@@ -11,9 +11,10 @@
 #define EXPANDRADIUS 180.0f
 #define STARTPOINT CGPointMake(CGRectGetWidth(self.bounds) - 36, CGRectGetHeight(self.bounds) - 36)
 #define TIMEOFFSET 0.03f
-#define BOUNCEREGION 30
+#define BOUNCEREGION_TOP 30
+#define BOUNCEREGION_BOTTOM 10
 
-static const CGFloat kColSpacingForCenterUp = 24;
+static const CGFloat kColSpacingForCenterUp = 50;
 
 @interface ICDExpandingMenu ()<ICDExpandingItemDelegate>
 @property (nonatomic, assign) ICDExpandingItem *centerButton;
@@ -61,8 +62,8 @@ static const CGFloat kColSpacingForCenterUp = 24;
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    CGFloat nearRadius = _expandingRadius - BOUNCEREGION;
-    CGFloat farRadius = _expandingRadius + BOUNCEREGION;
+    CGFloat nearRadius = _expandingRadius - BOUNCEREGION_BOTTOM;
+    CGFloat farRadius = _expandingRadius + BOUNCEREGION_TOP;
     CGPoint startPoint = _expandingCenter;
 
     NSUInteger count = _itemsArray.count;
@@ -92,38 +93,38 @@ static const CGFloat kColSpacingForCenterUp = 24;
                 case 0:
                     startPoint = CGPointMake(leftColItemCenterX, CGRectGetMaxY(self.bounds) + itemWidth);
                     endPoint = CGPointMake(leftColItemCenterX, self.center.y - (colSpacing/2 + itemHeight/2));
-                    nearPoint = CGPointMake(leftColItemCenterX, endPoint.y + BOUNCEREGION);
-                    farPoint = CGPointMake(leftColItemCenterX, endPoint.y - BOUNCEREGION);
+                    nearPoint = CGPointMake(leftColItemCenterX, endPoint.y + BOUNCEREGION_BOTTOM);
+                    farPoint = CGPointMake(leftColItemCenterX, endPoint.y - BOUNCEREGION_TOP);
                     break;
                 case 1:
                     startPoint = CGPointMake(centerColItemCenterX, CGRectGetMaxY(self.bounds) + itemWidth);
                     endPoint = CGPointMake(centerColItemCenterX, self.center.y - (colSpacing/2 + itemHeight/2));
-                    nearPoint = CGPointMake(centerColItemCenterX, endPoint.y + BOUNCEREGION);
-                    farPoint = CGPointMake(centerColItemCenterX, endPoint.y - BOUNCEREGION);
+                    nearPoint = CGPointMake(centerColItemCenterX, endPoint.y + BOUNCEREGION_BOTTOM);
+                    farPoint = CGPointMake(centerColItemCenterX, endPoint.y - BOUNCEREGION_TOP);
                     break;
                 case 2:
                     startPoint = CGPointMake(rightColItemCenterX, CGRectGetMaxY(self.bounds) + itemWidth);
                     endPoint = CGPointMake(rightColItemCenterX, self.center.y - (colSpacing/2 + itemHeight/2));
-                    nearPoint = CGPointMake(rightColItemCenterX, endPoint.y + BOUNCEREGION);
-                    farPoint = CGPointMake(rightColItemCenterX, endPoint.y - BOUNCEREGION);
+                    nearPoint = CGPointMake(rightColItemCenterX, endPoint.y + BOUNCEREGION_BOTTOM);
+                    farPoint = CGPointMake(rightColItemCenterX, endPoint.y - BOUNCEREGION_TOP);
                     break;
                 case 3:
                     startPoint = CGPointMake(leftColItemCenterX, CGRectGetMaxY(self.bounds) + itemWidth);
                     endPoint = CGPointMake(leftColItemCenterX, self.center.y + (colSpacing/2 + itemHeight/2));
-                    nearPoint = CGPointMake(leftColItemCenterX, endPoint.y + BOUNCEREGION);
-                    farPoint = CGPointMake(leftColItemCenterX, endPoint.y - BOUNCEREGION);
+                    nearPoint = CGPointMake(leftColItemCenterX, endPoint.y + BOUNCEREGION_BOTTOM);
+                    farPoint = CGPointMake(leftColItemCenterX, endPoint.y - BOUNCEREGION_TOP);
                     break;
                 case 4:
                     startPoint = CGPointMake(centerColItemCenterX, CGRectGetMaxY(self.bounds) + itemWidth);
                     endPoint = CGPointMake(centerColItemCenterX, self.center.y + (colSpacing/2 + itemHeight/2));
-                    nearPoint = CGPointMake(centerColItemCenterX, endPoint.y + BOUNCEREGION);
-                    farPoint = CGPointMake(centerColItemCenterX, endPoint.y - BOUNCEREGION);
+                    nearPoint = CGPointMake(centerColItemCenterX, endPoint.y + BOUNCEREGION_BOTTOM);
+                    farPoint = CGPointMake(centerColItemCenterX, endPoint.y - BOUNCEREGION_TOP);
                     break;
                 case 5:
                     startPoint = CGPointMake(rightColItemCenterX, CGRectGetMaxY(self.bounds) + itemWidth);
                     endPoint = CGPointMake(rightColItemCenterX, self.center.y + (colSpacing/2 + itemHeight/2));
-                    nearPoint = CGPointMake(rightColItemCenterX, endPoint.y + BOUNCEREGION);
-                    farPoint = CGPointMake(rightColItemCenterX, endPoint.y - BOUNCEREGION);
+                    nearPoint = CGPointMake(rightColItemCenterX, endPoint.y + BOUNCEREGION_BOTTOM);
+                    farPoint = CGPointMake(rightColItemCenterX, endPoint.y - BOUNCEREGION_TOP);
                     break;
                 default:
                     break;
