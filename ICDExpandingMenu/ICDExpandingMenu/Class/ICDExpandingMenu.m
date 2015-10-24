@@ -200,13 +200,6 @@ static const CGFloat kColSpacingForCenterUp = 24;
     NSInteger tag = 1000 + self.flag;
     ICDExpandingItem *item = (ICDExpandingItem *)[self viewWithTag:tag];
     
-    CAKeyframeAnimation *rotateAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotateAnimation.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:M_PI],[NSNumber numberWithFloat:0.0f], nil];
-    rotateAnimation.duration = 0.5f;
-    rotateAnimation.keyTimes = [NSArray arrayWithObjects:
-                                [NSNumber numberWithFloat:.3],
-                                [NSNumber numberWithFloat:.4], nil];
-    
     CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     positionAnimation.duration = 0.5f;
     CGMutablePathRef path = CGPathCreateMutable();
@@ -218,7 +211,7 @@ static const CGFloat kColSpacingForCenterUp = 24;
     CGPathRelease(path);
     
     CAAnimationGroup *animationgroup = [CAAnimationGroup animation];
-    animationgroup.animations = [NSArray arrayWithObjects:positionAnimation, rotateAnimation, nil];
+    animationgroup.animations = [NSArray arrayWithObjects:positionAnimation, nil];
     animationgroup.duration = 0.5f;
     animationgroup.fillMode = kCAFillModeForwards;
     animationgroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
@@ -237,14 +230,6 @@ static const CGFloat kColSpacingForCenterUp = 24;
     NSInteger tag = 1000 + self.flag;
     ICDExpandingItem *item = (ICDExpandingItem *)[self viewWithTag:tag];
     
-    CAKeyframeAnimation *rotateAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotateAnimation.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0f],[NSNumber numberWithFloat:M_PI * 2],[NSNumber numberWithFloat:0.0f], nil];
-    rotateAnimation.duration = 0.5f;
-    rotateAnimation.keyTimes = [NSArray arrayWithObjects:
-                                [NSNumber numberWithFloat:.0],
-                                [NSNumber numberWithFloat:.4],
-                                [NSNumber numberWithFloat:.5], nil];
-    
     CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     positionAnimation.duration = 0.5f;
     CGMutablePathRef path = CGPathCreateMutable();
@@ -255,7 +240,7 @@ static const CGFloat kColSpacingForCenterUp = 24;
     CGPathRelease(path);
     
     CAAnimationGroup *animationgroup = [CAAnimationGroup animation];
-    animationgroup.animations = [NSArray arrayWithObjects:positionAnimation, rotateAnimation, nil];
+    animationgroup.animations = [NSArray arrayWithObjects:positionAnimation, nil];
     animationgroup.duration = 0.5f;
     animationgroup.fillMode = kCAFillModeForwards;
     animationgroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
