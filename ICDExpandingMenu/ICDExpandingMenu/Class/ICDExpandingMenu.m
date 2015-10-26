@@ -202,6 +202,7 @@ static const CGFloat kColSpacingForCenterUp = 50;
     
     CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     positionAnimation.duration = 0.5f;
+    positionAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, item.startPoint.x, item.startPoint.y);
     CGPathAddLineToPoint(path, NULL, item.farPoint.x, item.farPoint.y);
@@ -209,13 +210,8 @@ static const CGFloat kColSpacingForCenterUp = 50;
     CGPathAddLineToPoint(path, NULL, item.endPoint.x, item.endPoint.y);
     positionAnimation.path = path;
     CGPathRelease(path);
+    [item.layer addAnimation:positionAnimation forKey:@"Expand"];
     
-    CAAnimationGroup *animationgroup = [CAAnimationGroup animation];
-    animationgroup.animations = [NSArray arrayWithObjects:positionAnimation, nil];
-    animationgroup.duration = 0.5f;
-    animationgroup.fillMode = kCAFillModeForwards;
-    animationgroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    [item.layer addAnimation:animationgroup forKey:@"Expand"];
     item.center = item.endPoint;
 
     self.flag ++;
@@ -235,19 +231,14 @@ static const CGFloat kColSpacingForCenterUp = 50;
     
     CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     positionAnimation.duration = 0.5f;
+    positionAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, item.endPoint.x, item.endPoint.y);
     CGPathAddLineToPoint(path, NULL, item.farPoint.x, item.farPoint.y);
     CGPathAddLineToPoint(path, NULL, item.startPoint.x, item.startPoint.y);
     positionAnimation.path = path;
     CGPathRelease(path);
-    
-    CAAnimationGroup *animationgroup = [CAAnimationGroup animation];
-    animationgroup.animations = [NSArray arrayWithObjects:positionAnimation, nil];
-    animationgroup.duration = 0.5f;
-    animationgroup.fillMode = kCAFillModeForwards;
-    animationgroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    [item.layer addAnimation:animationgroup forKey:@"Close"];
+    [item.layer addAnimation:positionAnimation forKey:@"Close"];
     
     item.center = item.startPoint;
     
