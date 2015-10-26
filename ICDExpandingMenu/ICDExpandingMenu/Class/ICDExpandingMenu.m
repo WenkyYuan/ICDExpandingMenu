@@ -135,7 +135,6 @@ static const CGFloat kColSpacingForCenterUp = 50;
         item.endPoint = endPoint;
         item.nearPoint = nearPoint;
         item.farPoint = farPoint;
-        item.center = item.startPoint;
     }
     _centerButton.center = _expandingCenter;
 }
