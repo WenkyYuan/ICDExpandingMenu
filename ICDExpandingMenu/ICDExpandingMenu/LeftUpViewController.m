@@ -19,17 +19,19 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
     
-    ICDExpandingItem *item1 = [[ICDExpandingItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"icon_1"] highlightedImage:[UIImage imageNamed:@"icon_1"]];
-    ICDExpandingItem *item2 = [[ICDExpandingItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"icon_2"] highlightedImage:[UIImage imageNamed:@"icon_2"]];
-    ICDExpandingItem *item3 = [[ICDExpandingItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"icon_3"] highlightedImage:[UIImage imageNamed:@"icon_3"]];
-    ICDExpandingItem *item4 = [[ICDExpandingItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"icon_4"] highlightedImage:[UIImage imageNamed:@"icon_4"]];
-    ICDExpandingItem *item5 = [[ICDExpandingItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"icon_3"] highlightedImage:[UIImage imageNamed:@"icon_3"]];
-    NSArray *items = @[item1, item2, item3, item4, item5];
+    NSMutableArray *itemArray = [NSMutableArray array];
+    for (NSInteger i = 1; i <= 5; i ++) {
+        NSString *imageNameStr = [NSString stringWithFormat:@"icon_%zd", i];
+        ICDExpandingItem *item = [[ICDExpandingItem alloc] initWithTitle:nil image:[UIImage imageNamed:imageNameStr] highlightedImage:[UIImage imageNamed:imageNameStr]];
+        [itemArray addObject:item];
+    }
     
     ICDExpandingItem *centerButton = [[ICDExpandingItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"icon_2"] highlightedImage:[UIImage imageNamed:@"icon_2"]];
     
     CGRect bounds = [UIScreen mainScreen].bounds;
-    ICDExpandingMenu *menu = [[ICDExpandingMenu alloc] initWithFrame:bounds menuItems:items centerButton:centerButton];
+    ICDExpandingMenu *menu = [[ICDExpandingMenu alloc] initWithFrame:bounds
+                                                           menuItems:[itemArray copy]
+                                                        centerButton:centerButton];
     menu.expandingRadius = 200;
     menu.expandingCenter = CGPointMake(bounds.size.width - 36, bounds.size.height - 36);
     menu.expandingDirection = ExpandingDirectionLeftUp;

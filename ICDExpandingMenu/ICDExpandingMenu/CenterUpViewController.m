@@ -23,7 +23,7 @@
     ICDExpandingItem *item2 = [[ICDExpandingItem alloc] initWithTitle:@"运动" image:[UIImage imageNamed:@"icon_2"] highlightedImage:[UIImage imageNamed:@"icon_2"]];
     ICDExpandingItem *item3 = [[ICDExpandingItem alloc] initWithTitle:@"聚会" image:[UIImage imageNamed:@"icon_3"] highlightedImage:[UIImage imageNamed:@"icon_3"]];
     ICDExpandingItem *item4 = [[ICDExpandingItem alloc] initWithTitle:@"广场舞" image:[UIImage imageNamed:@"icon_4"] highlightedImage:[UIImage imageNamed:@"icon_4"]];
-    ICDExpandingItem *item5 = [[ICDExpandingItem alloc] initWithTitle:@"自定义" image:[UIImage imageNamed:@"icon_3"] highlightedImage:[UIImage imageNamed:@"icon_3"]];
+    ICDExpandingItem *item5 = [[ICDExpandingItem alloc] initWithTitle:@"自定义" image:[UIImage imageNamed:@"icon_3"] highlightedImage:[UIImage imageNamed:@"icon_5"]];
     NSArray *items = @[item1, item2, item3, item4, item5];
     
     ICDExpandingItem *centerButton = [[ICDExpandingItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"icon_2"] highlightedImage:[UIImage imageNamed:@"icon_2"]];
