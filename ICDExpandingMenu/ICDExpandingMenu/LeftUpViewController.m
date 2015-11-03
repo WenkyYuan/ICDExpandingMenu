@@ -22,11 +22,12 @@
     NSMutableArray *itemArray = [NSMutableArray array];
     for (NSInteger i = 1; i <= 5; i ++) {
         NSString *imageNameStr = [NSString stringWithFormat:@"icon_%zd", i];
-        ICDExpandingItem *item = [[ICDExpandingItem alloc] initWithTitle:nil image:[UIImage imageNamed:imageNameStr] highlightedImage:[UIImage imageNamed:imageNameStr]];
+        NSString *imageHighlightNameStr = [NSString stringWithFormat:@"icon_%zd_highlight", i];
+        ICDExpandingItem *item = [[ICDExpandingItem alloc] initWithTitle:nil image:[UIImage imageNamed:imageNameStr] highlightedImage:[UIImage imageNamed:imageHighlightNameStr]];
         [itemArray addObject:item];
     }
     
-    ICDExpandingItem *centerButton = [[ICDExpandingItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"icon_2"] highlightedImage:[UIImage imageNamed:@"icon_2"]];
+    ICDExpandingItem *centerButton = [[ICDExpandingItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"activity_publish_icon_normal"] highlightedImage:[UIImage imageNamed:@"activity_publish_icon_highlight"]];
     
     CGRect bounds = [UIScreen mainScreen].bounds;
     ICDExpandingMenu *menu = [[ICDExpandingMenu alloc] initWithFrame:bounds

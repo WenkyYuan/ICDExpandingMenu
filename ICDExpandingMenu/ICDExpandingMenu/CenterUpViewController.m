@@ -19,14 +19,14 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
     
-    ICDExpandingItem *item1 = [[ICDExpandingItem alloc] initWithTitle:@"棋牌" image:[UIImage imageNamed:@"icon_1"] highlightedImage:[UIImage imageNamed:@"icon_1"]];
-    ICDExpandingItem *item2 = [[ICDExpandingItem alloc] initWithTitle:@"运动" image:[UIImage imageNamed:@"icon_2"] highlightedImage:[UIImage imageNamed:@"icon_2"]];
-    ICDExpandingItem *item3 = [[ICDExpandingItem alloc] initWithTitle:@"聚会" image:[UIImage imageNamed:@"icon_3"] highlightedImage:[UIImage imageNamed:@"icon_3"]];
-    ICDExpandingItem *item4 = [[ICDExpandingItem alloc] initWithTitle:@"广场舞" image:[UIImage imageNamed:@"icon_4"] highlightedImage:[UIImage imageNamed:@"icon_4"]];
-    ICDExpandingItem *item5 = [[ICDExpandingItem alloc] initWithTitle:@"自定义" image:[UIImage imageNamed:@"icon_3"] highlightedImage:[UIImage imageNamed:@"icon_5"]];
+    ICDExpandingItem *item1 = [[ICDExpandingItem alloc] initWithTitle:@"棋牌" image:[UIImage imageNamed:@"icon_1"] highlightedImage:[UIImage imageNamed:@"icon_1_highlight"]];
+    ICDExpandingItem *item2 = [[ICDExpandingItem alloc] initWithTitle:@"运动" image:[UIImage imageNamed:@"icon_2"] highlightedImage:[UIImage imageNamed:@"icon_2_highlight"]];
+    ICDExpandingItem *item3 = [[ICDExpandingItem alloc] initWithTitle:@"聚会" image:[UIImage imageNamed:@"icon_3"] highlightedImage:[UIImage imageNamed:@"icon_3_highlight"]];
+    ICDExpandingItem *item4 = [[ICDExpandingItem alloc] initWithTitle:@"广场舞" image:[UIImage imageNamed:@"icon_4"] highlightedImage:[UIImage imageNamed:@"icon_4_highlight"]];
+    ICDExpandingItem *item5 = [[ICDExpandingItem alloc] initWithTitle:@"自定义" image:[UIImage imageNamed:@"icon_5"] highlightedImage:[UIImage imageNamed:@"icon_5_highlight"]];
     NSArray *items = @[item1, item2, item3, item4, item5];
     
-    ICDExpandingItem *centerButton = [[ICDExpandingItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"icon_2"] highlightedImage:[UIImage imageNamed:@"icon_2"]];
+    ICDExpandingItem *centerButton = [[ICDExpandingItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"activity_publish_icon_normal"] highlightedImage:[UIImage imageNamed:@"activity_publish_icon_highlight"]];
     
     CGRect bounds = [UIScreen mainScreen].bounds;
     ICDExpandingMenu *menu = [[ICDExpandingMenu alloc] initWithFrame:bounds menuItems:items centerButton:centerButton];
